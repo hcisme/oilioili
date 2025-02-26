@@ -12,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.chc.oilioili.navigation.NavHostGraph
 import com.chc.oilioili.network.Request
 import com.chc.oilioili.ui.theme.OilioiliTheme
+import com.chc.oilioili.utils.BASE_URL
 import com.chc.oilioili.utils.LocalNavController
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        Request.init(baseUrl = getString(R.string.base_url))
+        Request.init(baseUrl = BASE_URL)
 
         setContent {
             CompositionLocalProvider(

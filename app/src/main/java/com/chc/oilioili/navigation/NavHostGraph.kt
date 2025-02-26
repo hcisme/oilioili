@@ -2,6 +2,7 @@ package com.chc.oilioili.navigation
 
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -27,26 +28,26 @@ fun NavHostGraph(modifier: Modifier = Modifier) {
     val enterTransition = remember {
         slideInVertically(
             animationSpec = tween(
-                durationMillis = 300,
+                durationMillis = 200,
                 easing = FastOutSlowInEasing
             ),
             initialOffsetY = { it / 2 }
         ) + fadeIn(
             animationSpec = tween(
-                durationMillis = 600
+                durationMillis = 400
             )
         )
     }
     val exitTransition = remember {
         slideOutVertically(
             animationSpec = tween(
-                durationMillis = 300,
+                durationMillis = 200,
                 easing = FastOutLinearInEasing
             ),
             targetOffsetY = { it }
         ) + fadeOut(
             animationSpec = tween(
-                durationMillis = 200
+                durationMillis = 400
             )
         )
     }
