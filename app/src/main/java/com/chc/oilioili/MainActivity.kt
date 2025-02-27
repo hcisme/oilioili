@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             CompositionLocalProvider(
-                LocalNavController provides rememberNavController(),
+                LocalNavController provides rememberNavController()
             ) {
                 OilioiliTheme(
                     dynamicColor = false

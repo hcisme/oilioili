@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
     implementation(project(":player"))
 
     testImplementation(libs.junit)

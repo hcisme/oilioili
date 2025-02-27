@@ -1,11 +1,9 @@
 package com.chc.oilioili.navigation
 
-import androidx.compose.animation.core.FastOutLinearInEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -19,28 +17,16 @@ import com.chc.oilioili.ui.screen.index.IndexPage
 import com.chc.oilioili.ui.screen.movie.MoviePage
 import com.chc.oilioili.utils.LocalNavController
 
-val enterTransition = slideInVertically(
-    animationSpec = tween(
-        durationMillis = 300,
-        easing = FastOutLinearInEasing
-    ),
-    initialOffsetY = { it }
-) + fadeIn(
-    animationSpec = tween(
-        durationMillis = 600
-    )
+private const val AnimationInDuration = 300
+private const val AnimationOutDuration = 300
+private val AnimationEasing = LinearOutSlowInEasing
+private val enterTransition = slideInHorizontally(
+    animationSpec = tween(AnimationInDuration, easing = AnimationEasing),
+    initialOffsetX = { it }
 )
-
-val exitTransition = slideOutVertically(
-    animationSpec = tween(
-        durationMillis = 300,
-        easing = FastOutLinearInEasing
-    ),
-    targetOffsetY = { it }
-) + fadeOut(
-    animationSpec = tween(
-        durationMillis = 600
-    )
+private val exitTransition = slideOutHorizontally(
+    animationSpec = tween(AnimationOutDuration, easing = AnimationEasing),
+    targetOffsetX = { it }
 )
 
 @Composable
