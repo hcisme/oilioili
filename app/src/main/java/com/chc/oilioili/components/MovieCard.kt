@@ -30,7 +30,7 @@ fun MovieCard(
         onClick = onClick,
         modifier = modifier.padding(horizontal = 2.dp, vertical = 0.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(4.dp)
+        shape = RoundedCornerShape(0.dp)
     ) {
         Column(
             modifier = Modifier.padding(4.dp)
@@ -41,7 +41,7 @@ fun MovieCard(
                 contentDescription = title,
                 modifier = Modifier
                     .aspectRatio(16 / 9F)
-                    .clip(RoundedCornerShape(4.dp)),
+                    .clip(RoundedCornerShape(0.dp)),
                 contentScale = ContentScale.Crop
             )
 
@@ -57,7 +57,7 @@ fun MovieCard(
                 overflow = TextOverflow.Ellipsis
             )
 
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             // 电影简介
             Text(

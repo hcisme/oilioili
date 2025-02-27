@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.chc.oilioili.network.model.UserInfo
 import com.chc.oilioili.network.model.VideoDetail
 import com.chc.oilioili.network.model.VideoPData
+import com.chc.oilioili.network.service.userService
 import com.chc.oilioili.network.service.videoService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -43,8 +44,16 @@ class MovieViewModel : ViewModel() {
             return
         }
         val result = withContext(Dispatchers.IO) {
-            videoService.getUserInfo(currentVideoDetail!!.userId)
+            userService.getUserInfo(currentVideoDetail!!.userId)
         }
         currentVideoUserInfo = result.data
+    }
+
+    fun resetStoreValue()  {
+        currentVideoId = null
+        videoPList.clear()
+        currentVideoDetail = null
+        currentFileInfo = null
+        currentVideoUserInfo = null
     }
 }

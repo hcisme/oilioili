@@ -34,10 +34,7 @@ fun MoviePage(id: String, modifier: Modifier = Modifier) {
 
     DisposableEffect(Unit) {
         onDispose {
-            movieVM.currentVideoId = null
-            movieVM.videoPList.clear()
-            movieVM.currentFileInfo = null
-            movieVM.currentVideoUserInfo = null
+            movieVM.resetStoreValue()
         }
     }
 
@@ -54,7 +51,10 @@ fun MoviePage(id: String, modifier: Modifier = Modifier) {
                 .padding(innerPadding)
         ) {
             Player(
-                mediaUri = getM3u8Url(movieVM.currentFileInfo?.fileId ?: ""),
+                mediaUri = if (movieVM.currentFileInfo?.fileId == null)
+                    ""
+                else
+                    getM3u8Url(movieVM.currentFileInfo!!.fileId),
                 title = movieVM.currentFileInfo?.fileName ?: "",
                 onClickBackButton = {
                     navHostController.popBackStack()
@@ -70,7 +70,7 @@ fun MoviePage(id: String, modifier: Modifier = Modifier) {
                             modifier = Modifier
                                 .padding(8.dp)
                                 .width(120.dp)
-                                .height(60.dp)
+                                .height(56.dp)
                                 .clip(RoundedCornerShape(4.dp))
                                 .background(MaterialTheme.colorScheme.surfaceVariant)
                                 .border(

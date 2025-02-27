@@ -1,6 +1,10 @@
 package com.chc.oilioili.ui.screen.movie
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,13 +12,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.LocalContentColor
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -24,6 +29,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.chc.oilioili.components.FadeImage
 import com.chc.oilioili.utils.getCompleteImage
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun MvInfo(modifier: Modifier = Modifier) {
     val movieVM = viewModel<MovieViewModel>()
@@ -88,6 +94,26 @@ fun MvInfo(modifier: Modifier = Modifier) {
                 }
             }
 
+            if (info?.tags != null) {
+                FlowRow(
+                    modifier = Modifier.padding(horizontal = 8.dp),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    info.tags.split(",").forEach { item ->
+                        Text(
+                            item,
+                            fontSize = 10.sp,
+                            modifier = Modifier
+                                .padding(end = 4.dp, bottom = 6.dp)
+                                .clip(RoundedCornerShape(2.dp))
+                                .background(MaterialTheme.colorScheme.surfaceVariant)
+                                .padding(horizontal = 6.dp, vertical = 2.dp),
+                            style = MaterialTheme.typography.labelSmall
+                        )
+                    }
+                }
+            }
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -97,7 +123,7 @@ fun MvInfo(modifier: Modifier = Modifier) {
                 Text(
                     text = "${info?.playCount ?: 0} 次观看",
                     fontSize = 10.sp,
-                    style = MaterialTheme.typography.labelSmall,
+                    style = MaterialTheme.typography.labelSmall
                 )
 
                 Spacer(modifier = Modifier.width(4.dp))
@@ -105,7 +131,7 @@ fun MvInfo(modifier: Modifier = Modifier) {
                 Text(
                     text = info?.lastUpdateTime ?: "",
                     fontSize = 10.sp,
-                    style = MaterialTheme.typography.labelSmall,
+                    style = MaterialTheme.typography.labelSmall
                 )
             }
         }

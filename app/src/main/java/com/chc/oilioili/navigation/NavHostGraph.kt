@@ -1,8 +1,6 @@
 package com.chc.oilioili.navigation
 
 import androidx.compose.animation.core.FastOutLinearInEasing
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -12,7 +10,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -22,35 +19,33 @@ import com.chc.oilioili.ui.screen.index.IndexPage
 import com.chc.oilioili.ui.screen.movie.MoviePage
 import com.chc.oilioili.utils.LocalNavController
 
+val enterTransition = slideInVertically(
+    animationSpec = tween(
+        durationMillis = 300,
+        easing = FastOutLinearInEasing
+    ),
+    initialOffsetY = { it }
+) + fadeIn(
+    animationSpec = tween(
+        durationMillis = 600
+    )
+)
+
+val exitTransition = slideOutVertically(
+    animationSpec = tween(
+        durationMillis = 300,
+        easing = FastOutLinearInEasing
+    ),
+    targetOffsetY = { it }
+) + fadeOut(
+    animationSpec = tween(
+        durationMillis = 600
+    )
+)
+
 @Composable
 fun NavHostGraph(modifier: Modifier = Modifier) {
     val navController = LocalNavController.current
-    val enterTransition = remember {
-        slideInVertically(
-            animationSpec = tween(
-                durationMillis = 300,
-                easing = FastOutSlowInEasing
-            ),
-            initialOffsetY = { it / 2 }
-        ) + fadeIn(
-            animationSpec = tween(
-                durationMillis = 600
-            )
-        )
-    }
-    val exitTransition = remember {
-        slideOutVertically(
-            animationSpec = tween(
-                durationMillis = 300,
-                easing = FastOutLinearInEasing
-            ),
-            targetOffsetY = { it }
-        ) + fadeOut(
-            animationSpec = tween(
-                durationMillis = 600
-            )
-        )
-    }
 
     NavHost(
         modifier = modifier
