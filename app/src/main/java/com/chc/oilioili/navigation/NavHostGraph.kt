@@ -28,26 +28,26 @@ fun NavHostGraph(modifier: Modifier = Modifier) {
     val enterTransition = remember {
         slideInVertically(
             animationSpec = tween(
-                durationMillis = 200,
+                durationMillis = 300,
                 easing = FastOutSlowInEasing
             ),
             initialOffsetY = { it / 2 }
         ) + fadeIn(
             animationSpec = tween(
-                durationMillis = 400
+                durationMillis = 600
             )
         )
     }
     val exitTransition = remember {
         slideOutVertically(
             animationSpec = tween(
-                durationMillis = 200,
+                durationMillis = 300,
                 easing = FastOutLinearInEasing
             ),
             targetOffsetY = { it }
         ) + fadeOut(
             animationSpec = tween(
-                durationMillis = 400
+                durationMillis = 600
             )
         )
     }

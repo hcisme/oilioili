@@ -1,8 +1,11 @@
 package com.chc.oilioili.ui.screen.index
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -22,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.chc.oilioili.components.MovieCard
@@ -32,6 +36,7 @@ import com.chc.oilioili.utils.getCompleteImage
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun IndexPage(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     val navHostController = LocalNavController.current
     val indexVM = viewModel<IndexViewModel>()
 
@@ -42,7 +47,7 @@ fun IndexPage(modifier: Modifier = Modifier) {
     }
 
     Scaffold(
-        modifier = modifier,
+        modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = {
@@ -50,9 +55,7 @@ fun IndexPage(modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(4.dp))
-                            .background(
-                                MaterialTheme.colorScheme.surfaceVariant
-                            )
+                            .background(MaterialTheme.colorScheme.surfaceVariant)
                             .padding(8.dp)
                     ) {
                         Text(
@@ -90,5 +93,9 @@ fun IndexPage(modifier: Modifier = Modifier) {
                 )
             }
         }
+    }
+
+    BackHandler {
+        (context as Activity).moveTaskToBack(true)
     }
 }

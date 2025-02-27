@@ -30,7 +30,7 @@ fun MovieCard(
         onClick = onClick,
         modifier = modifier.padding(horizontal = 2.dp, vertical = 0.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(4.dp)
     ) {
         Column(
             modifier = Modifier.padding(4.dp)

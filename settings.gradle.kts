@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "oilioili"
 include(":app")
- 
+include(":player")
