@@ -17,8 +17,8 @@ import com.chc.oilioili.utils.LocalNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         enableEdgeToEdge()
         Request.init(baseUrl = BASE_URL)
 
