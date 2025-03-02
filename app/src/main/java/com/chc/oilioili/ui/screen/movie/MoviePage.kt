@@ -58,7 +58,9 @@ fun MoviePage(id: String, modifier: Modifier = Modifier) {
             title = movieVM.currentFileInfo?.fileName ?: "",
             onClickBackButton = {
                 navHostController.popBackStack()
-            }
+            },
+            isShowBulletChat = false,
+            bulletChatList = listOf()
         )
 
         MvInfo()

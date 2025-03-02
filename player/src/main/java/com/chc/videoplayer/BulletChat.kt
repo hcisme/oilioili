@@ -67,7 +67,7 @@ fun BulletChat(
                 targetValue = -danmu.textWidth,
                 animationSpec = tween(durationMillis = dt, easing = LinearEasing)
             )
-            activeBulletChats.remove(danmu)
+            activeBulletChats.remove(activeBulletChats.find { it.id == danmu.id })
         }
 
         // 3. 更新弹幕对象的 Job 引用
@@ -149,6 +149,7 @@ fun BulletChat(
             .filter { it.time == currentSeconds }
             .take(3)
             .forEach { item ->
+                // TODO Seekbar跳跃 清空activeBulletChats
                 if (activeBulletChats.any { it.id == item.id }) {
                     return@forEach
                 }
