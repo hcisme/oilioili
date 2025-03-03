@@ -11,38 +11,38 @@ data class Danmu(
 )
 
 val danmuList = listOf<Danmu>(
-//    Danmu(
-//        id = 1,
-//        text = "壬戌之秋，七月既望，苏子与客泛舟游于赤壁之下。",
-//        color = "#FFD700",
-//        time = 1
-//    ),
-//    Danmu(
-//        text = "清风徐来，水波不兴。", color = "#FF6347", time = 2,
-//        id = 2
-//    ),
-//    Danmu(
-//        text = "举酒属客，诵明月之诗，歌窈窕之章。", color = "#32CD32", time = 3,
-//        id = 3
-//    ),
-//    Danmu(
-//        text = "少焉，月出于东山之上，徘徊于斗牛之间。", color = "#1E90FF", time = 5,
-//        id = 4
-//    ),
-//    Danmu(
-//        text = "白露横江，水光接天。", color = "#BA55D3", time = 7,
-//        id = 5
-//    ),
-//    Danmu(
-//        text = "纵一苇之所如，凌万顷之茫然。", color = "#FF4500", time = 9,
-//        id = 6
-//    ),
-//    Danmu(
-//        text = "浩浩乎如冯虚御风，而不知其所止；飘飘乎如遗世独立，羽化而登仙。",
-//        color = "#00CED1",
-//        time = 11,
-//        id = 7
-//    )
+    Danmu(
+        id = 1,
+        text = "壬戌之秋，七月既望，苏子与客泛舟游于赤壁之下。",
+        color = "#FFD700",
+        time = 1
+    ),
+    Danmu(
+        text = "清风徐来，水波不兴。", color = "#FF6347", time = 2,
+        id = 2
+    ),
+    Danmu(
+        text = "举酒属客，诵明月之诗，歌窈窕之章。", color = "#32CD32", time = 3,
+        id = 3
+    ),
+    Danmu(
+        text = "少焉，月出于东山之上，徘徊于斗牛之间。", color = "#1E90FF", time = 5,
+        id = 4
+    ),
+    Danmu(
+        text = "白露横江，水光接天。", color = "#BA55D3", time = 7,
+        id = 5
+    ),
+    Danmu(
+        text = "纵一苇之所如，凌万顷之茫然。", color = "#FF4500", time = 9,
+        id = 6
+    ),
+    Danmu(
+        text = "浩浩乎如冯虚御风，而不知其所止；飘飘乎如遗世独立，羽化而登仙。",
+        color = "#00CED1",
+        time = 11,
+        id = 7
+    )
 //    Danmu(text = "于是饮酒乐甚，扣舷而歌之。", color = "#FFD700", time = 13),
 //    Danmu(text = "歌曰：“桂棹兮兰桨，击空明兮溯流光。", color = "#FF69B4", time = 15),
 //    Danmu(text = "渺渺兮予怀，望美人兮天一方。", color = "#7B68EE", time = 305),
